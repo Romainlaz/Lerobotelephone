@@ -1,0 +1,18 @@
+travailler sur GitHub: 
+
+git clone https://github.com/ton-pseudo/nom-du-repo.git
+cd nom-du-repo
+
+git checkout main
+git pull                          # récupérer la dernière version
+git checkout -b ajout-formulaire  # nouvelle branche pour ta tâche
+
+# ... tu codes ...
+
+git add .
+git commit -m "Ajoute le formulaire de contact"
+git push -u origin ajout-formulaire
+
+sur GitHub, un bouton Compare & pull request apparaît. Tu crées la PR, ton binôme relit, commente si besoin, puis clique Merge.
+
+Une fois fusionnée, vous faites tous les deux git checkout main && git pull
