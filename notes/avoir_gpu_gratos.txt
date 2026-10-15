@@ -1,0 +1,203 @@
+ENTRAINER LE MICRODUCK PAR RL - OFFRES DE CALCUL GPU
+Repo : https://github.com/pollen-robotics/microduck_rl
+Tache de base : Mjlab-Velocity-Flat-MicroDuck (la marche)
+(Chiffres en "~" = approximatifs, les offres commerciales changent souvent : verifier a l'inscription)
+
+
+NIVEAUX DE GPU (temps estime pour entrainer la marche)
+------------------------------------------------------
+Haut de gamme (H100, A100)  : ~1 a 2 h
+Milieu de gamme (L4, A10G)  : ~2 a 4 h
+Entree de gamme (T4)        : ~4 a 8 h (mettre --env.scene.num-envs 2048)
+Ancien (P100)               : compatibilite MuJoCo Warp incertaine, preferer T4
+
+
+CLASSEMENT (du plus d'heures au moins d'heures)
+===============================================
+
+1. JEAN ZAY (supercalculateur national, acces dynamique)
+   Heures : plusieurs milliers d'heures GPU par an, sur dossier
+   GPU    : H100 / A100 / V100 -> haut de gamme
+   CB     : NON - gratuit
+   Conditions d'acces :
+     - Recherche academique (etudiant M2 en stage accepte)
+     - Demande sur www.edari.fr, rubrique IA / Acces dynamique
+     - Demande portee ou validee par un chercheur permanent (encadrant)
+     - Valable 1 an ; delai de quelques jours
+     - Citer Jean Zay si publication
+   Prompt :
+     Je suis etudiant en stage au LAAS-CNRS. Guide-moi pas a pas pour une
+     demande d'acces dynamique a Jean Zay sur eDARI : informations a fournir,
+     nombre d'heures GPU a demander pour du RL avec mjlab (Microduck), role de
+     mon encadrant, puis script SLURM pour lancer
+     "uv run train Mjlab-Velocity-Flat-MicroDuck".
+
+2. CALMIP (mesocentre de Toulouse, supercalculateur Kairos)
+   Heures : selon l'attribution du projet (souvent centaines a milliers)
+   GPU    : calculateur recent -> haut de gamme (modele a verifier)
+   CB     : NON - gratuit
+   Conditions d'acces :
+     - Recherche publique en region toulousaine (labos CNRS, universites)
+     - Compte rattache a un projet existant ou nouveau, porte par un chercheur
+     - Demande via le site CALMIP (calmip.univ-toulouse.fr)
+   Prompt :
+     Je suis au LAAS-CNRS a Toulouse. Explique comment obtenir un compte
+     CALMIP rattache au projet de mon equipe, puis ecris un script SLURM pour
+     entrainer Mjlab-Velocity-Flat-MicroDuck (repo pollen-robotics/microduck_rl)
+     sur un noeud GPU.
+
+3. GOOGLE CLOUD (credit d'essai 300 $)
+   Heures : ~400 h sur T4 ou ~80 h sur A100, une seule fois, 90 jours
+   GPU    : au choix -> entree a haut de gamme
+   CB     : OUI
+   Conditions d'acces :
+     - Nouveau compte Google Cloud uniquement
+     - Carte bancaire obligatoire
+     - Les GPU exigent de passer le compte en "facturation" (les credits
+       restants sont conserves) et de demander un quota GPU
+     - Mettre une alerte budget et arreter la VM apres usage
+   Prompt :
+     Guide-moi pour activer l'essai Google Cloud a 300 $, passer le compte en
+     mode facture sans perdre les credits (necessaire pour les GPU), demander
+     un quota GPU, creer une VM avec GPU et CUDA, puis entrainer
+     Mjlab-Velocity-Flat-MicroDuck et arreter la VM automatiquement a la fin.
+
+4. KAGGLE NOTEBOOKS
+   Heures : ~30 h/semaine (~120 h/mois), sessions de 12 h max, renouvele
+   GPU    : P100 ou 2x T4 -> entree de gamme (choisir T4)
+   CB     : NON - gratuit
+   Conditions d'acces :
+     - Compte Kaggle gratuit
+     - Verification par numero de telephone pour activer le GPU
+     - Quota hebdomadaire visible dans les parametres du compte
+   Prompt :
+     Ecris un notebook Kaggle complet (GPU T4) pour entrainer
+     Mjlab-Velocity-Flat-MicroDuck du repo pollen-robotics/microduck_rl :
+     installation de uv, entrainement avec 2048 envs, sauvegarde reguliere des
+     checkpoints, export ONNX et telechargement du fichier.
+
+5. GOOGLE COLAB (gratuit)
+   Heures : ~15 a 30 h/semaine, variable selon la charge, renouvele
+   GPU    : T4 -> entree de gamme
+   CB     : NON - gratuit
+   Conditions d'acces :
+     - Compte Google
+     - GPU non garanti ; la session peut se couper en cours de route
+     - Sauvegarder les checkpoints sur Google Drive
+   Prompt :
+     Ecris un notebook Colab (GPU T4 gratuit) pour entrainer
+     Mjlab-Velocity-Flat-MicroDuck (pollen-robotics/microduck_rl), avec
+     sauvegarde des checkpoints sur Google Drive pour reprendre si la session
+     se coupe, puis export ONNX.
+
+6. AWS SAGEMAKER STUDIO LAB
+   Heures : 4 h/jour max (~120 h/mois), renouvele
+   GPU    : T4 -> entree de gamme
+   CB     : NON - gratuit, pas besoin de compte AWS
+   Conditions d'acces :
+     - Inscription avec adresse mail, demande de compte a faire valider
+       (delai possible)
+     - Sessions limitees a 4 h : entrainer en plusieurs fois depuis les
+       checkpoints
+   Prompt :
+     Guide-moi pour creer un compte AWS SageMaker Studio Lab et y entrainer
+     Mjlab-Velocity-Flat-MicroDuck en sessions de 4 h maximum, en reprenant
+     depuis le dernier checkpoint a chaque session.
+
+7. MICROSOFT AZURE (credit d'essai 200 $)
+   Heures : ~50 a 200 h selon le GPU, une seule fois, 30 jours
+   GPU    : au choix -> entree a haut de gamme
+   CB     : OUI
+   Conditions d'acces :
+     - Nouveau compte Azure uniquement
+     - Carte bancaire obligatoire
+     - Quota GPU souvent a 0 par defaut : demande d'augmentation necessaire
+     - Mettre une alerte budget et arreter la VM apres usage
+   Prompt :
+     Guide-moi pour utiliser les credits d'essai Azure afin de louer une VM
+     GPU NVIDIA, installer CUDA et entrainer Mjlab-Velocity-Flat-MicroDuck,
+     avec une alerte de budget pour ne jamais etre debite au-dela des credits.
+
+8. AZURE FOR STUDENTS (credit 100 $)
+   Heures : ~100 h sur petit GPU, une seule fois (valable 12 mois)
+   GPU    : souvent bloques sur ce type de compte -> a verifier
+   CB     : NON
+   Conditions d'acces :
+     - Etre etudiant, verification par adresse mail de l'ecole/universite
+     - Les quotas GPU peuvent etre refuses sur cet abonnement
+   Prompt :
+     Je suis etudiant en France. Explique comment activer Azure for Students
+     sans carte bancaire, verifier si je peux obtenir un quota GPU, et sinon
+     quelles alternatives utiliser pour entrainer Mjlab-Velocity-Flat-MicroDuck.
+
+9. ORACLE CLOUD (credit d'essai 300 $)
+   Heures : selon le GPU, une seule fois, 30 jours
+   GPU    : au choix -> entree a haut de gamme
+   CB     : OUI
+   Conditions d'acces :
+     - Nouveau compte Oracle Cloud uniquement
+     - Carte bancaire obligatoire
+     - Le niveau "Always Free" n'inclut PAS de GPU ; seuls les credits d'essai
+     - Disponibilite GPU variable selon la region
+   Prompt :
+     Guide-moi pour utiliser les credits d'essai Oracle Cloud afin de louer
+     une VM GPU NVIDIA, installer CUDA et entrainer
+     Mjlab-Velocity-Flat-MicroDuck, avec une alerte de budget pour ne jamais
+     etre debite au-dela des credits.
+
+10. LIGHTNING AI
+   Heures : 15 credits/mois (~22 h sur T4, beaucoup moins sur gros GPU),
+            renouvele
+   GPU    : T4 a A100 -> entree a haut de gamme
+   CB     : NON - gratuit
+   Conditions d'acces :
+     - Compte gratuit + verification par numero de telephone
+     - Le Studio gratuit redemarre toutes les 4 h
+   Prompt :
+     Guide-moi pour creer un Studio Lightning AI gratuit avec GPU T4 et y
+     entrainer Mjlab-Velocity-Flat-MicroDuck (pollen-robotics/microduck_rl),
+     en surveillant ma consommation de credits.
+
+11. MODAL
+   Heures : ~30 $ de credits/mois (~8 h sur A100), renouvele
+   GPU    : A100 / H100 -> haut de gamme
+   CB     : A VERIFIER (selon l'offre en cours)
+   Conditions d'acces :
+     - Compte Modal (connexion GitHub ou mail)
+     - Utilisation en Python via la bibliotheque "modal"
+   Prompt :
+     Ecris un script Modal qui lance l'entrainement de
+     Mjlab-Velocity-Flat-MicroDuck sur un GPU A100 avec le repo
+     pollen-robotics/microduck_rl, sauvegarde les checkpoints dans un volume
+     Modal et reste dans les credits gratuits mensuels.
+
+12. HUGGING FACE JOBS (option --hf-jobs du repo)
+   Heures : payant a la minute, ~2 a 3 EUR par entrainement sur L4
+   GPU    : L4 par defaut, A10G ou A100 possibles -> milieu a haut de gamme
+   CB     : OUI (ou abonnement PRO 9 $/mois qui inclut des credits)
+   Conditions d'acces :
+     - Compte Hugging Face avec solde de credits positif
+     - Compte Weights & Biases (gratuit) pour suivre l'entrainement
+     - Toujours mettre --timeout pour limiter la facture
+   Prompt :
+     Guide-moi pour lancer
+     "uv run train Mjlab-Velocity-Flat-MicroDuck --hf-jobs --timeout 4h" :
+     creation du compte Hugging Face, ajout de credits, connexion wandb, suivi
+     du job et recuperation du modele ONNX.
+
+
+RESUME CB
+---------
+Sans CB : Jean Zay, CALMIP, Kaggle, Colab, SageMaker Studio Lab,
+          Azure for Students, Lightning AI
+Avec CB : Google Cloud, Azure, Oracle Cloud, Hugging Face Jobs
+A verifier : Modal
+Avec CB -> toujours une alerte budget + arreter la machine apres usage.
+
+
+STRATEGIE CONSEILLEE
+--------------------
+1. Tout de suite : Kaggle (gratuit, sans CB) pour un premier entrainement.
+2. En parallele : demande Jean Zay (meilleurs GPU, quelques jours de delai).
+3. En reserve : Colab / Lightning AI pour des essais courts,
+   Google Cloud si besoin d'heures sur un bon GPU sans attendre.
